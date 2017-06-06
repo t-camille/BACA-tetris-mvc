@@ -1,0 +1,16 @@
+table.figure {
+	width: 100%;
+}
+
+table.figure td {
+	border: solid 1px black;
+	padding: 0;
+}
+
+table.figure td.active {
+	position: relative;
+}
+
+table.figure td a {
+	display: block;
+}
