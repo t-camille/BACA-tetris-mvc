@@ -39,8 +39,8 @@
 		</tr>
 		<tr>
 			<td><label for="password">Vérification du mot de passe</label></td>
-			<td><input name="password-validation" type="password" /></td>
-			<td><form:errors path="password-validation" /></td>
+			<td><input name="passwordCheck" type="password" /></td>
+			<td><form:errors path="passwordCheck" /></td>
 		</tr>
 
 

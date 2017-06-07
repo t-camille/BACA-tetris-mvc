@@ -6,3 +6,5 @@
 \.settings/
 
 WebContent/WEB-INF/lib/jstl-1\.2\.jar
+
+src/fr/ascadis/model/noentity/InscriptionUtilisateur\.java

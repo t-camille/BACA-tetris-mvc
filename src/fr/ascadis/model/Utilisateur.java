@@ -14,6 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import fr.ascadis.security.SecurityType;
@@ -34,18 +35,22 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@NotEmpty
 	private int id;
 	
+	@NotEmpty
 	@Column(name="UTI_NOM")
 	@NotEmpty
 	private String nom;
 	
+	@NotBlank
 	@Column(name="UTI_PRENOM")
 	@NotEmpty
 	private String prenom;
 	
+	@NotEmpty
 	@Column(name="UTI_USERNAME")
 	@NotEmpty
 	private String username;
 	
+	@NotEmpty
 	@Column(name="UTI_PASSWORD")
 	@NotEmpty
 	private String password;
@@ -54,12 +59,10 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@NotEmpty
 	private int type;
 	
+	private String passwordCheck;
 	
 	
-	public void setType(int type) {
-		this.type = type;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -106,6 +109,15 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	
 	
 	
+	
+	public String getPasswordCheck() {
+		return passwordCheck;
+	}
+
+	public void setPasswordCheck(String passwordCheck) {
+		this.passwordCheck = passwordCheck;
+	}
+
 	public SecurityType getSecurityType() {
 		switch (this.type) {
 			case 0:
