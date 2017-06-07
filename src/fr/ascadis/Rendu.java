@@ -23,7 +23,7 @@ public class Rendu
 	
 	public static void pageLogin(ServletContext context, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		pagePrincipale("Bienvenue", "/WEB-INF/views/login.jsp", context, req, resp);
+		pagePrincipale("Bienvenue", "/WEB-INF/views/jsp/account/login.jsp", context, req, resp);
 	}
 	
 	
@@ -42,7 +42,7 @@ public class Rendu
 		req.setAttribute("tetriminos", tetriminos);
 		req.setAttribute("montrerActions", montrerActions);
 		
-		pagePrincipale(titrePage, "/WEB-INF/views/tetriminos.jsp", context, req, resp);
+		pagePrincipale(titrePage, "/WEB-INF/views/jsp/tetrimino/tetriminos.jsp", context, req, resp);
 	}
 	
 	
@@ -56,7 +56,7 @@ public class Rendu
 	public static void pagePrincipale(String title, String contentJsp, ServletContext context, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		if (title == null)
-			title = "Défaut";
+			title = "Dï¿½faut";
 		
 		req.setAttribute("pageTitle", title);
 		req.setAttribute("contentJsp", contentJsp);

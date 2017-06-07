@@ -5,10 +5,17 @@
 
 $( function(){ 
 	
-  $(" .row").sortable({ // initialisation de Sortable
+  $(".row").sortable({ // initialisation de Sortable
 	update: function() {  // callback quand l'ordre de la liste est changé
-		var order = $(' .row').sortable('serialize'); // récupération des données à envoyer
-		$.post('changeFormesOrderServlet',order); // appel de servlet pour la maj de l'ordre en BDD
+		var order = $(this).sortable('toArray'); // récupération des données à envoyer
+		var o = "";
+		
+		order.forEach(function(figure) {
+			o += figure + ",";
+		});
+		
+		console.log(o);
+		$.post('changeFiguresOrder',{"order":o}); // appel de servlet pour la maj de l'ordre en BDD
 	}
   });
   
