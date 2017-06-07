@@ -6,8 +6,16 @@ import fr.ascadis.model.Utilisateur;
 
 public class InscriptionUtilisateur	 extends Utilisateur {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@NotEmpty
 	private String passwordCheck;
+	
+	@NotEmpty
+	private Utilisateur utilisateur;
 	
 	
 	public String getPasswordCheck() {
@@ -17,5 +25,11 @@ public class InscriptionUtilisateur	 extends Utilisateur {
 		this.passwordCheck = passwordCheck;
 	}
 	
-	
+	public void setProperties(Utilisateur utilisateur)
+	{
+		utilisateur.setNom(this.getNom());
+		utilisateur.setPrenom(this.getPrenom());
+		utilisateur.setUsername(this.getUsername());
+		utilisateur.setPassword(this.getPassword());
+	}	
 }

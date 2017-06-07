@@ -35,7 +35,7 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@NotEmpty
 	private int id;
 	
-	@NotEmpty
+	
 	@Column(name="UTI_NOM")
 	@NotEmpty
 	private String nom;
@@ -45,12 +45,12 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@NotEmpty
 	private String prenom;
 	
-	@NotEmpty
+	
 	@Column(name="UTI_USERNAME")
 	@NotEmpty
 	private String username;
 	
-	@NotEmpty
+	
 	@Column(name="UTI_PASSWORD")
 	@NotEmpty
 	private String password;

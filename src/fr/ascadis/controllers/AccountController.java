@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import fr.ascadis.model.Joueur;
 import fr.ascadis.model.Spectateur;
 import fr.ascadis.model.Utilisateur;
 import fr.ascadis.model.noentity.InscriptionUtilisateur;
+import fr.ascadis.validator.PasswordCheckValidator;
 
 /*Ce contrôleur remplacera les Servlets suivantes :
 
@@ -26,7 +25,7 @@ import fr.ascadis.model.noentity.InscriptionUtilisateur;
 			*/
 @Controller
 @RequestMapping("/account")
-public class AccountController {
+public class AccountController extends DataAccess {
 	@RequestMapping(value = "/subscribe", method = RequestMethod.GET)
 	public String subscribe() {
 		return "subscribe";
@@ -40,12 +39,12 @@ public class AccountController {
 			Utilisateur myUtilisateur = null;
 
 			switch (inscriptionUtilisateur.getType()) {
-				case "2": myUtilisateur = new Spectateur(); break;
+				case 2 : myUtilisateur = new Spectateur(); break;
 				default: myUtilisateur = new Joueur(); break;
 			}
 
 			inscriptionUtilisateur.setProperties(myUtilisateur);
-			this.sqlUtilisateurApplicationData.add(myUtilisateur);
+			this.getUtilisateurDAO().save(myUtilisateur);
 
 			return "redirect:/home";
 		}
@@ -55,9 +54,7 @@ public class AccountController {
 
 	@ModelAttribute("user")
 	public Utilisateur initUtilisateur() {
-		Utilisateur myUtilisateur = new Utilisateur() {
-		};
-		return myUtilisateur;
+		return new InscriptionUtilisateur();
 	}
 
 	@InitBinder
