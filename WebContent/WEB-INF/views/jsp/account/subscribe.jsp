@@ -1,18 +1,21 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <form:form method="post" action="subscribe" modelAttribute="user">
-	<table>
-		<tr>
-			<td><label for="type_joueur">Joueur</label></td>
-			<td><input name="type" type="radio" value="1" /></td>
-			<td><form:errors path="type_joueur" /></td>
-		</tr>
-		<tr>
-			<td><label for="type_spectateur">Spectateur</label></td>
-			<td><input name="type" type="radio" value="1" /></td>
-			<td><form:errors path="type_spectateur" /></td>
-		</tr>
 
+<div class="input-field">
+        <p>
+            <input name="type" type="radio" id="type_joueur" value="1" checked />
+            <label for="type_joueur">Joueur</label>
+        </p>
+        
+        <p>
+            <input name="type" type="radio" id="type_spectateur" value="2" />
+            <label for="type_spectateur">Spectateur</label>
+        </p>
+    </div>
+    
+	<table>
+		
 		<tr>
 			<td><label for="nom">Nom</label></td>
 			<td><input name="nom" type="text" value="${ user.nom }" /></td>
