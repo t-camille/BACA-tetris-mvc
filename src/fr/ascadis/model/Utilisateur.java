@@ -14,6 +14,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import fr.ascadis.security.SecurityType;
 import fr.ascadis.security.SecurityUser;
 
@@ -29,25 +31,35 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UTI_ID")
+	@NotEmpty
 	private int id;
 	
 	@Column(name="UTI_NOM")
+	@NotEmpty
 	private String nom;
 	
 	@Column(name="UTI_PRENOM")
+	@NotEmpty
 	private String prenom;
 	
 	@Column(name="UTI_USERNAME")
+	@NotEmpty
 	private String username;
 	
 	@Column(name="UTI_PASSWORD")
+	@NotEmpty
 	private String password;
 	
 	@Column(name = "UTI_TYPE", insertable = false, updatable = false)
-    private int type;
+	@NotEmpty
+	private int type;
 	
 	
 	
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public int getId() {
 		return id;
 	}
