@@ -51,12 +51,13 @@ public class SecuriteFilter implements Filter
 		myAcceptedURIs.add(new SecurityMatch("/login", SecurityType.Anonyme));
 		myAcceptedURIs.add(new SecurityMatch("/subscribe", SecurityType.Anonyme));
 
-		//Tous les utilisateurs connectés
+		//Tous les utilisateurs connectï¿½s
 		myAcceptedURIs.add(new SecurityMatch("/home", SecurityType.Logged));
 		myAcceptedURIs.add(new SecurityMatch("/logout", SecurityType.Logged));
 		
 		//Seulement les administrateurs
 		myAcceptedURIs.add(new SecurityMatch("/tetriminos", SecurityType.Administrateur));
+		myAcceptedURIs.add(new SecurityMatch("/changeFiguresOrder", SecurityType.Administrateur));
 		myAcceptedURIs.add(new SecurityMatch("/editTetrimino", SecurityType.Administrateur));
 		myAcceptedURIs.add(new SecurityMatch("/deleteTetrimino", SecurityType.Administrateur));
 		myAcceptedURIs.add(new SecurityMatch("/editFigure", SecurityType.Administrateur));

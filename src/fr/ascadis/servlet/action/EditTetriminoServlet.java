@@ -45,7 +45,7 @@ public class EditTetriminoServlet extends DataAccessServlet
 		}
 		
 		req.setAttribute("tetrimino", myTetrimino);
-		Rendu.pagePrincipale(myTitre, "/WEB-INF/views/editTetrimino.jsp", getServletContext(), req, resp);
+		Rendu.pagePrincipale(myTitre, "/WEB-INF/views/jsp/tetrimino/editTetrimino.jsp", getServletContext(), req, resp);
 	}
 	
 	

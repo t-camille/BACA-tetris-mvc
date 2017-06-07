@@ -37,7 +37,7 @@
 			
 			<div class="row">
 				<c:forEach items="${ tetrimino.figures }" var="figure">
-					<div class="col s2">
+					<div class="col s2" id="${ figure.id }">
 						<a href="${ pageContext.request.contextPath }/deleteFigure?figure_id=${ figure.id }"><i class="material-icons">delete</i></a>
 						
 						<table class="figure">

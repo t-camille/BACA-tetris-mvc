@@ -1,6 +1,7 @@
 package fr.ascadis.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -62,7 +63,21 @@ public class Tetrimino implements Serializable
 	}
 	
 	public List<Figure> getFigures() {
-		return figures;
+		
+		List<Figure>orderedFigures = new ArrayList<Figure>();
+		
+		for ( int  cpt = 0 ; cpt < this.figures.size(); cpt ++)
+		{
+			for ( Figure f : this.figures)
+			{
+				if ( f.getOrdre() == cpt )
+				{
+					orderedFigures.add(f);
+				}
+			}
+		}
+		
+		return orderedFigures;
 	}
 	
 	public void setFigures(List<Figure> figures) {
