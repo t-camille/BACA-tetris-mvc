@@ -4,7 +4,7 @@ package fr.ascadis.controllers;
 
 			-LoginServlet
 			-SubscribeServlet
-			-LogoutServle
+			-LogoutServlet
 			*/
 public class AccountController {
 
