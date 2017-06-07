@@ -66,9 +66,15 @@ public class Tetrimino implements Serializable
 		
 		List<Figure>orderedFigures = new ArrayList<Figure>();
 		
-		for ( Figure f : this.figures)
+		for ( int  cpt = 0 ; cpt < this.figures.size(); cpt ++)
 		{
-			orderedFigures.set(f.getOrdre(), f);
+			for ( Figure f : this.figures)
+			{
+				if ( f.getOrdre() == cpt )
+				{
+					orderedFigures.add(f);
+				}
+			}
 		}
 		
 		return orderedFigures;
