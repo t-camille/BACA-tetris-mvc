@@ -8,16 +8,13 @@
 			
 			<c:if test="${ utilisateur != null }">
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="home">Accueil</a></li>
 					<li><a href="${ pageContext.request.contextPath }home">Accueil</a></li>
 					
 					<c:if test="${ utilisateur.type == 0 }">
-						<li><a href="tetriminos">Tetriminos</a></li>
 						<li><a href="${ pageContext.request.contextPath }tetriminos">Tetriminos</a></li>
 					</c:if>
 					
 					<c:if test="${ utilisateur.type != 0 }">
-						<li><a href="parties">Parties</a></li>
 						<li><a href="${ pageContext.request.contextPath }partie">Parties</a></li>
 					</c:if>
 				</ul>
