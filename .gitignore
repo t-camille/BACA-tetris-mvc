@@ -4,3 +4,5 @@
 \.project
 
 \.settings/
+
+WebContent/WEB-INF/lib/jstl-1\.2\.jar
