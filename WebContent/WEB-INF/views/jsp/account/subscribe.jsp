@@ -1,51 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<c:if test="${ failure != null}">
-	Impossible de s'inscrire. Veuillez recommencer.
-</c:if>
+<form:form method="post" action="subscribe" modelAttribute="user">
+	<table>
+		<tr>
+			<td><label for="type_joueur">Joueur</label></td>
+			<td><input name="type" type="radio" value="1" /></td>
+			<td><form:errors path="type_joueur" /></td>
+		</tr>
+		<tr>
+			<td><label for="type_spectateur">Spectateur</label></td>
+			<td><input name="type" type="radio" value="1" /></td>
+			<td><form:errors path="type_spectateur" /></td>
+		</tr>
+
+		<tr>
+			<td><label for="nom">Nom</label></td>
+			<td><input name="nom" type="text" value="${ user.nom }" /></td>
+			<td><form:errors path="nom" /></td>
+		</tr>
+
+		<tr>
+			<td><label for="prenom">Prénom</label></td>
+			<td><input name="prenom" type="text" value="${ user.prenom }" /></td>
+			<td><form:errors path="prenom" /></td>
+		</tr>
+
+		<tr>
+			<td><label for="username">Nom d'utilisateur</label></td>
+			<td><input name="username" type="text"
+				value="${ user.username }" /></td>
+			<td><form:errors path="username" /></td>
+		</tr>
+
+		<tr>
+			<td><label for="password">Mot de passe</label></td>
+			<td><input name="password" type="text" /></td>
+			<td><form:errors path="password" /></td>
+		</tr>
+		<tr>
+			<td><label for="password">Vérification du mot de passe</label></td>
+			<td><input name="password-validation" type="password" /></td>
+			<td><form:errors path="password-validation" /></td>
+		</tr>
 
 
-<form method="post">
-	<div class="input-field">
-		<p>
-			<input name="type" type="radio" id="type_joueur" value="1" />
-			<label for="type_joueur">Joueur</label>
-		</p>
-		
-		<p>
-			<input name="type" type="radio" id="type_spectateur" value="2" />
-			<label for="type_spectateur">Spectateur</label>
-		</p>
-	</div>
-	
-	<div class="input-field">
-		<input id="nom" type="text" class="validate" name="nom" />
-		<label for="nom">Votre nom</label>
-	</div>
-	
-	<div class="input-field">
-		<input id="prenom" type="text" class="validate" name="prenom" />
-		<label for="prenom">Votre prÃ©nom</label>
-	</div>
-	
-	<div class="input-field">
-		<input id="username" type="text" class="validate" name="username" />
-		<label for="username">Votre nom d'utilisateur</label>
-	</div>
-	
-	<div class="input-field">
-		<input id="password" type="password" class="validate" name="password" />
-		<label for="password">Votre mot de passe</label>
-	</div>
-	
-	<div class="input-field">
-		<input id="password-validation" type="password" class="validate" name="password-validation" />
-		<label for="password-validation">VÃ©rification de votre mot de passe</label>
-	</div>
-	
-	
-	<button class="btn waves-effect waves-light" type="submit">
-		OK <i class="material-icons right">send</i>
-	</button>
-</form>
+
+		<tr>
+			<td colspan="2"><input type="submit" value="S'inscrire" /></td>
+		</tr>
+	</table>
+</form:form>
