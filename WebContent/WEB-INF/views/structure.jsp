@@ -12,7 +12,8 @@
 		<link type="text/css" rel="stylesheet" href="css/tetrimino.css" media="screen,projection" />
 		<link type="text/css" rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/materialize.min.css" media="screen,projection" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 		
 		<title>${ pageTitle }</title>
 	</head>
@@ -25,5 +26,6 @@
 		</div>
 		
 		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/formesDrag&Drop.js"></script>
 	</body>
 </html>
