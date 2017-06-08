@@ -23,6 +23,8 @@ public class EditFigureServlet extends DataAccessServlet
 		Tetrimino myTetrimino = this.getTetriminoDAO().find(req.getParameter("tetrimino_id"));
 		Figure myFigure = new Figure();
 		
+		myFigure.setOrdre(myTetrimino.getFigures().size());
+		
 		myFigure.setTetrimino(myTetrimino);
 		this.getFigureDAO().save(myFigure);
 		
