@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.ascadis.Rendu;
 import fr.ascadis.model.Bloc;
 import fr.ascadis.model.Figure;
 import fr.ascadis.model.Tetrimino;
@@ -17,9 +16,11 @@ public class TetriminoController extends DataAccess
 {
 
 	// TetriminosServlet
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String tetriminos()
 	{
+		System.err.println("je passe bien par le controleur");
+
 		return "tetriminos";
 	}
 
@@ -27,9 +28,8 @@ public class TetriminoController extends DataAccess
 	@RequestMapping(value = "/editTetrimino", method = RequestMethod.GET)
 	public String editTetrimino(@RequestParam(value = "tetrimino_id") String tetriminoId, Model model)
 	{
-
+		System.err.println("je passe bien par le controleur");
 		Tetrimino myTetrimino = null;
-		String myTitre = "";
 
 		if (tetriminoId != null)
 		{
@@ -37,9 +37,8 @@ public class TetriminoController extends DataAccess
 
 			if (myTetrimino == null)
 			{
-				// resp.sendRedirect("home");
-				return "home";
-			}
+				return "redirect:home";
+			}			
 
 			return "editTetrimino";
 		}
@@ -47,14 +46,9 @@ public class TetriminoController extends DataAccess
 		else
 		{
 			myTetrimino = new Tetrimino("Pas de nom", "000");
-			myTitre = "Nouveau tetrimino";
 		}
 
-		// req.setAttribute("tetrimino", myTetrimino);
-		//Rendu.pagePrincipale(myTitre, "/WEB-INF/views/jsp/tetrimino/editTetrimino.jsp", getServletContext(), req, resp);
-
 		model.addAttribute("tetrimino", myTetrimino);
-
 		return "newTetrimino";
 	}
 
@@ -63,6 +57,7 @@ public class TetriminoController extends DataAccess
 			@RequestParam(value = "tetrimino_nom") String tetriminoNom,
 			@RequestParam(value = "tetrimino_couleur") String tetriminoCouleur)
 	{
+		System.err.println("je passe bien par le controleur");
 
 		Tetrimino myTetrimino = this.getTetriminoDAO().find(tetriminoId);
 
@@ -77,15 +72,16 @@ public class TetriminoController extends DataAccess
 		myTetrimino.setCouleur(tetriminoCouleur);
 
 		this.getTetriminoDAO().save(myTetrimino);
-		// resp.sendRedirect("tetriminos");
 
-		return "tetriminos";
+		return "redirect:tetriminos";
 	}
 
 	// DeleteTetriminoServlet
 	@RequestMapping(value = "/deleteTetrimino", method = RequestMethod.GET)
 	public String deleteTetrimino(@RequestParam(value = "tetrimino_id") String tetriminoId)
 	{
+		System.err.println("je passe bien par le controleur");
+
 		try
 		{
 			// String myTetriminoId = req.getParameter("tetrimino_id");
@@ -106,12 +102,13 @@ public class TetriminoController extends DataAccess
 	{
 		Tetrimino myTetrimino = this.getTetriminoDAO().find(tetriminoId);
 		Figure myFigure = new Figure();
-		
+		System.err.println("je passe bien par le controleur");
+
 		myFigure.setOrdre(myTetrimino.getFigures().size());
 		
 		myFigure.setTetrimino(myTetrimino);
 		this.getFigureDAO().save(myFigure);
-		
+				
 		return "redirect:editTetrimino?tetrimino_id=" + myFigure.getTetrimino().getId();
 	}
 	
@@ -120,7 +117,8 @@ public class TetriminoController extends DataAccess
 	public String changeFiguresOrder(@RequestParam(value = "order") String reqID)
 	{
 		int order = 0;
-		
+		System.err.println("je passe bien par le controleur");
+
 		for ( String s : reqID.split(",") )
 		{
 			Figure f = this.getFigureDAO().find(Integer.parseInt(s));
@@ -135,6 +133,8 @@ public class TetriminoController extends DataAccess
 	@RequestMapping(value="/deleteFigure", method=RequestMethod.GET)
 	public String deleteFigure(@RequestParam(value = "figure_id") Integer figureId)
 	{
+		System.err.println("je passe bien par le controleur");
+
 		try
 		{
 			Figure myFigure = this.getFigureDAO().find(figureId);
@@ -157,7 +157,9 @@ public class TetriminoController extends DataAccess
 	public String editBloc(@RequestParam(value = "figure_id") Integer figureId,
 			@RequestParam(value = "bloc_id") Integer blocId, @RequestParam(value = "position_x") Integer positionX,
 			@RequestParam(value = "position_y") Integer positionY)
-	{
+	{		
+		System.err.println("je passe bien par le controleur");
+
 		Figure myFigure = this.getFigureDAO().find(figureId);
 		Bloc myBloc = null;
 
@@ -183,7 +185,9 @@ public class TetriminoController extends DataAccess
 	// DeleteBlocServlet
 	@RequestMapping(value = "/deleteBloc", method = RequestMethod.GET)
 	public String deletBloc(@RequestParam(value = "bloc_id") Integer blocId)
-	{
+	{		
+		System.err.println("je passe bien par le controleur");
+
 		try
 		{
 			Bloc myBloc = this.getBlocDAO().find(blocId);

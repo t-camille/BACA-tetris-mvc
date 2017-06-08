@@ -14,7 +14,7 @@ import fr.ascadis.model.Utilisateur;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/subscribe")
+//@WebServlet("/subscribe")
 public class SubscribeServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public class SubscribeServlet extends DataAccessServlet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		//On récupère les paramètres du formulaire
+		//On rï¿½cupï¿½re les paramï¿½tres du formulaire
 		String myType = req.getParameter("type");
 		String myNom = req.getParameter("nom");
 		String myPrenom = req.getParameter("prenom");
