@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -19,10 +21,10 @@
 	</head>
 	
 	<body>
-		<jsp:include page="navigation.jsp" />
+		<tiles:insertAttribute name="navigation" />
 		
 		<div class="container">
-			<jsp:include page="${ contentJsp }" />
+			<tiles:insertAttribute name="body" />
 		</div>
 		
 		<script type="text/javascript" src="js/materialize.min.js"></script>

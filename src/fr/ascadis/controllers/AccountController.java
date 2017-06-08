@@ -24,7 +24,6 @@ import fr.ascadis.validator.PasswordCheckValidator;
 			-LogoutServlet
 			*/
 @Controller
-@RequestMapping("/account")
 public class AccountController extends DataAccess {
 	@RequestMapping(value = "/subscribe", method = RequestMethod.GET)
 	public String subscribe() {
@@ -32,12 +31,18 @@ public class AccountController extends DataAccess {
 	}
 
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
-	public String subscribe(@Valid @ModelAttribute("inscription") InscriptionUtilisateur inscriptionUtilisateur, BindingResult result, Model model) {
-		new PasswordCheckValidator().validate(inscriptionUtilisateur, result);
+	public String subscribe(@Valid @ModelAttribute("user") InscriptionUtilisateur inscriptionUtilisateur,
+			BindingResult result, Model model) {
+		
 
+		new PasswordCheckValidator().validate(inscriptionUtilisateur, result);
+		
+		
 		if (!result.hasErrors()) {
 			Utilisateur myUtilisateur = null;
-
+			
+			
+			
 			switch (inscriptionUtilisateur.getType()) {
 				case 2 : myUtilisateur = new Spectateur(); break;
 				default: myUtilisateur = new Joueur(); break;
@@ -65,7 +70,7 @@ public class AccountController extends DataAccess {
 	@RequestMapping(value = "/logout")
 	public String logOut(HttpSession session) {
 		session.invalidate();
-		return "Login";
+		return "login";
 
 	}
 }

@@ -32,7 +32,6 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UTI_ID")
-	@NotEmpty
 	private int id;
 	
 	
@@ -56,7 +55,6 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 	private String password;
 	
 	@Column(name = "UTI_TYPE", insertable = false, updatable = false)
-	@NotEmpty
 	private int type;
 	
 	private String passwordCheck;

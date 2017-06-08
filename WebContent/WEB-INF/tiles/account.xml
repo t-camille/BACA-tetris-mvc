@@ -4,8 +4,8 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<!-- Configuration de la vue "home" -->
-	<definition name="home" extends="base.definition">
+	<definition name="subscribe" extends="base.definition">
 		<put-attribute name="title" value="Account" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/account/subscribe.jsp" />
 	</definition>
 </tiles-definitions>
