@@ -59,19 +59,19 @@ public class TetriminoController extends DataAccess
 			@RequestParam(value = "tetrimino_couleur") String tetriminoCouleur)
 	{
 		System.err.println("je passe bien par le controleur");
-
 		Tetrimino myTetrimino = this.getTetriminoDAO().find(tetriminoId);
 
 		// Si on ne trouve pas le Tetrimino, c'est que l'on est en train de
 		// l'ajouter !
 		if (myTetrimino == null)
 		{
+			System.out.println("pourquoi tu passe par la??!!");
 			myTetrimino = new Tetrimino();
 		}
-
+		
 		myTetrimino.setNom(tetriminoNom);
 		myTetrimino.setCouleur(tetriminoCouleur);
-
+		
 		this.getTetriminoDAO().save(myTetrimino);
 
 		return "redirect:tetriminos";
@@ -94,7 +94,7 @@ public class TetriminoController extends DataAccess
 			e.printStackTrace();
 		}
 
-		return "tetriminos";
+		return "redirect:tetriminos";
 	}
 	
 	// EditFigureServlet
@@ -156,7 +156,8 @@ public class TetriminoController extends DataAccess
 	// EditBlocServlet
 	@RequestMapping(value = "/editBloc", method = RequestMethod.GET)
 	public String editBloc(@RequestParam(value = "figure_id") Integer figureId,
-			@RequestParam(value = "bloc_id") Integer blocId, @RequestParam(value = "position_x") Integer positionX,
+			@RequestParam(value = "bloc_id", required = false) Integer blocId, 
+			@RequestParam(value = "position_x") Integer positionX,
 			@RequestParam(value = "position_y") Integer positionY)
 	{		
 		System.err.println("je passe bien par le controleur");

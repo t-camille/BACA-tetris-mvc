@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.ascadis.model.Figure;
 import fr.ascadis.servlet.DataAccessServlet;
 
-@WebServlet("/changeFiguresOrder")
+//@WebServlet("/changeFiguresOrder")
 public class ChangeFiguresOrderServlet extends DataAccessServlet
 {
 

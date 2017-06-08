@@ -12,7 +12,7 @@ import fr.ascadis.model.Figure;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/deleteBloc")
+//@WebServlet("/deleteBloc")
 public class DeleteBlocServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
