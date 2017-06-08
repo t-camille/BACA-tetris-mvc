@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //Ce contrôleur remplacera la Servlet HomeServlet
 @Controller
 public class HomeController {
-	@RequestMapping(value = "/home/{username}", method = RequestMethod.GET)
+	
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(@PathVariable("username") String usernames, Model model) {
-
+		
 		model.addAttribute("utilisateur", usernames);
 
 		return "home";

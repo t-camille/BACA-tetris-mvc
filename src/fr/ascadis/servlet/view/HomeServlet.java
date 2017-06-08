@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.ascadis.Rendu;
 
 
-@WebServlet("/home")
+//@WebServlet("/home")
 public class HomeServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;

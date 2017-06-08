@@ -12,7 +12,7 @@ import fr.ascadis.servlet.DataAccessServlet;
 
 
 
-@WebServlet("/login")
+//@WebServlet("/login")
 public class LoginServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
