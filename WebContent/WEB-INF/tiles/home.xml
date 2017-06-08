@@ -5,7 +5,7 @@
 <tiles-definitions>
 	<!-- Configuration de la vue "home" -->
 	<definition name="home" extends="base.definition">
-		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil.jsp" />
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
 	</definition>
 </tiles-definitions>

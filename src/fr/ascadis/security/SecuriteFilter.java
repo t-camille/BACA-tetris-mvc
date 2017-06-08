@@ -87,7 +87,8 @@ public class SecuriteFilter implements Filter
 		
 		if (needSecurityCheck)
 		{
-			Rendu.pageLogin(this.context, request, response);
+			response.sendRedirect("login");
+			//Rendu.pageLogin(this.context, request, response);
 			return;
 		}
 		

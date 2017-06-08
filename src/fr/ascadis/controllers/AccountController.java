@@ -19,9 +19,9 @@ import fr.ascadis.validator.PasswordCheckValidator;
 
 /*Ce contrôleur remplacera les Servlets suivantes :
 
-			-LoginServlet
-			-SubscribeServlet
-			-LogoutServlet
+			-LoginServlet (ok)
+			-SubscribeServlet (ok)
+			-LogoutServlet (ok)
 			*/
 @Controller
 public class AccountController extends DataAccess {
@@ -51,7 +51,7 @@ public class AccountController extends DataAccess {
 			inscriptionUtilisateur.setProperties(myUtilisateur);
 			this.getUtilisateurDAO().save(myUtilisateur);
 
-			return "redirect:/home";
+			return "redirect:/login";
 		}
 
 		return "subscribe";
@@ -68,9 +68,16 @@ public class AccountController extends DataAccess {
 	}
 
 	@RequestMapping(value = "/logout")
-	public String logOut(HttpSession session) {
+	public String logout(HttpSession session) {
 		session.invalidate();
 		return "login";
+
+	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		
+		return "home";
 
 	}
 }
