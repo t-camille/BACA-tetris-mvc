@@ -14,14 +14,13 @@ public class InscriptionUtilisateur	 extends Utilisateur {
 	@NotEmpty
 	private String passwordCheck;
 	
-	@NotEmpty
-	private Utilisateur utilisateur;
 	
 	
 	public String getPasswordCheck() {
 		return passwordCheck;
 	}
 	public void setPasswordCheck(String passwordCheck) {
+		
 		this.passwordCheck = passwordCheck;
 	}
 	
