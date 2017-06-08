@@ -11,7 +11,7 @@ import fr.ascadis.Rendu;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/tetriminos")
+//@WebServlet("/tetriminos")
 public class TetriminosServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
