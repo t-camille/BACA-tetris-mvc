@@ -8,4 +8,15 @@
 		<put-attribute name="title" value="Tetrimino" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/tetriminos.jsp" />
 	</definition>
+	
+	<definition name="editTetrimino" extends="base.definition">
+		<put-attribute name="title" value="Edition Tetrimino" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetriminos.jsp" />
+	</definition>
+	
+	<definition name="newTetrimino" extends="base.definition">
+		<put-attribute name="title" value="Nouveau Tetrimino" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetriminos.jsp" />
+	</definition>
+	
 </tiles-definitions>
