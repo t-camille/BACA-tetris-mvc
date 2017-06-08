@@ -11,12 +11,12 @@
 	
 	<definition name="editTetrimino" extends="base.definition">
 		<put-attribute name="title" value="Edition Tetrimino" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetriminos.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetrimino.jsp" />
 	</definition>
 	
 	<definition name="newTetrimino" extends="base.definition">
 		<put-attribute name="title" value="Nouveau Tetrimino" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetriminos.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/tetrimino/editTetrimino.jsp" />
 	</definition>
 	
 </tiles-definitions>

@@ -31,12 +31,11 @@
 				</div>
 				
 				
-				<c:if test="${ montrerActions }">
-					<div class="card-action">
-						<a href="deleteTetrimino?tetrimino_id=${ tetrimino.id }">RETIRER</a>
-						<a href="editTetrimino?tetrimino_id=${ tetrimino.id }">EDITER</a>
-					</div>
-				</c:if>
+				
+				<div class="card-action">
+					<a href="deleteTetrimino?tetrimino_id=${ tetrimino.id }">RETIRER</a>
+					<a href="editTetrimino?tetrimino_id=${ tetrimino.id }">EDITER</a>
+				</div>
 				
 				<div class="card-reveal">
 					<span class="card-title grey-text text-darken-4">${ tetrimino.nom }<i class="material-icons right">close</i></span>

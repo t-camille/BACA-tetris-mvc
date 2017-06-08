@@ -6,6 +6,6 @@
 	<!-- Configuration de la vue "home" -->
 	<definition name="home" extends="base.definition">
 		<put-attribute name="title" value="Login" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil.jsp" />
 	</definition>
 </tiles-definitions>

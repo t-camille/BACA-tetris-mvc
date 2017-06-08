@@ -9,8 +9,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import fr.ascadis.model.Joueur;
 import fr.ascadis.model.Spectateur;
 import fr.ascadis.model.Utilisateur;
@@ -30,22 +33,22 @@ public class AccountController extends DataAccess {
 		return "subscribe";
 	}
 
-	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
+	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
 	public String subscribe(@Valid @ModelAttribute("user") InscriptionUtilisateur inscriptionUtilisateur,
 			BindingResult result, Model model) {
-		
 
 		new PasswordCheckValidator().validate(inscriptionUtilisateur, result);
-		
-		
+
 		if (!result.hasErrors()) {
 			Utilisateur myUtilisateur = null;
-			
-			
-			
+
 			switch (inscriptionUtilisateur.getType()) {
-				case 2 : myUtilisateur = new Spectateur(); break;
-				default: myUtilisateur = new Joueur(); break;
+			case 2:
+				myUtilisateur = new Spectateur();
+				break;
+			default:
+				myUtilisateur = new Joueur();
+				break;
 			}
 
 			inscriptionUtilisateur.setProperties(myUtilisateur);
@@ -62,10 +65,10 @@ public class AccountController extends DataAccess {
 		return new InscriptionUtilisateur();
 	}
 
-	@InitBinder
+	/*@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 		binder.addValidators(new PasswordCheckValidator());
-	}
+	}*/
 
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
@@ -73,11 +76,25 @@ public class AccountController extends DataAccess {
 		return "login";
 
 	}
-	
-	@RequestMapping(value = "/login")
-	public String login() {
-		
-		return "home";
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "login";
 	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam(value="username") String username,
+			@RequestParam(value="password") String password,
+			HttpSession session) {
+
+		Utilisateur myUtilisateur = this.getUtilisateurDAO().auth(username,
+				password);
+
+		if (myUtilisateur != null) {
+			session.setAttribute("utilisateur", myUtilisateur);
+		}
+
+		return "redirect:home";
+	}
+
 }

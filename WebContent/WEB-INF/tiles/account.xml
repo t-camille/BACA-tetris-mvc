@@ -8,4 +8,14 @@
 		<put-attribute name="title" value="Account" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/account/subscribe.jsp" />
 	</definition>
+	
+	<definition name="login" extends="base.definition">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
+	</definition>
+	
+	<definition name="logout" extends="base.definition">
+		<put-attribute name="title" value="logout" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
+	</definition>
 </tiles-definitions>

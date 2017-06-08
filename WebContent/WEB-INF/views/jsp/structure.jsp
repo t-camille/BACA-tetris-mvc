@@ -10,8 +10,8 @@
 		
 		<!-- Materialize -->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-		<link type="text/css" rel="stylesheet" href="css/tetrimino.css" media="screen,projection" />
+		<link type="text/css" rel="stylesheet" href="${ pageContext.request.contextPath }/css/materialize.min.css" media="screen,projection" />
+		<link type="text/css" rel="stylesheet" href="${ pageContext.request.contextPath }/css/tetrimino.css" media="screen,projection" />
 		<link type="text/css" rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/materialize.min.css" media="screen,projection" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -27,7 +27,7 @@
 			<tiles:insertAttribute name="body" />
 		</div>
 		
-		<script type="text/javascript" src="js/materialize.min.js"></script>
-		<script type="text/javascript" src="js/formesDrag&Drop.js"></script>
+		<script type="text/javascript" src="${ pageContext.request.contextPath }/js/materialize.min.js"></script>
+		<script type="text/javascript" src="${ pageContext.request.contextPath }/js/formesDrag&Drop.js"></script>
 	</body>
 </html>

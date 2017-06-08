@@ -11,14 +11,14 @@ import fr.ascadis.model.Figure;
 import fr.ascadis.model.Tetrimino;
 
 @Controller
-@RequestMapping("/tetriminos")
 public class TetriminoController extends DataAccess
 {
 
 	// TetriminosServlet
-	@RequestMapping(value = "",method = RequestMethod.GET)
-	public String tetriminos()
+	@RequestMapping(value = "/tetriminos",method = RequestMethod.GET)
+	public String tetriminos(Model model)
 	{
+		model.addAttribute("tetriminos", this.getTetriminoDAO().findAll());
 		System.err.println("je passe bien par le controleur");
 
 		return "tetriminos";
@@ -26,7 +26,7 @@ public class TetriminoController extends DataAccess
 
 	// EditTetriminoServlet
 	@RequestMapping(value = "/editTetrimino", method = RequestMethod.GET)
-	public String editTetrimino(@RequestParam(value = "tetrimino_id") String tetriminoId, Model model)
+	public String editTetrimino(@RequestParam(value = "tetrimino_id", required=false) String tetriminoId, Model model)
 	{
 		System.err.println("je passe bien par le controleur");
 		Tetrimino myTetrimino = null;
@@ -39,7 +39,8 @@ public class TetriminoController extends DataAccess
 			{
 				return "redirect:home";
 			}			
-
+			
+			model.addAttribute("tetrimino", myTetrimino);
 			return "editTetrimino";
 		}
 

@@ -12,7 +12,7 @@ import fr.ascadis.model.Tetrimino;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/editTetrimino")
+//@WebServlet("/editTetrimino")
 public class EditTetriminoServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
