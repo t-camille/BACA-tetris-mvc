@@ -6,8 +6,6 @@
 	<div class="col s3">
 		<h5>Formulaire tetrimino</h5>
 		<form method="post">
-			<input type="hidden" name="tetrimino_id" value="${ tetrimino.id }" />
-			
 			<div class="input-field">
 				<input id="tetrimino_nom" type="text" class="validate" name="tetrimino_nom" value="${ tetrimino.nom }" />
 				<label for="tetrimino_nom">Nom</label>

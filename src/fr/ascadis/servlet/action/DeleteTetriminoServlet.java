@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/deleteTetrimino")
+//@WebServlet("/deleteTetrimino")
 public class DeleteTetriminoServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;

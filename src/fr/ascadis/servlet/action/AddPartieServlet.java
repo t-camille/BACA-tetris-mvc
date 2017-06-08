@@ -13,7 +13,7 @@ import fr.ascadis.model.Partie;
 import fr.ascadis.servlet.DataAccessServlet;
 
 
-@WebServlet("/addPartie")
+//@WebServlet("/addPartie")
 public class AddPartieServlet extends DataAccessServlet
 {
 	private static final long serialVersionUID = 1L;
