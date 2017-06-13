@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.ascadis.dao.IUtilisateurDAO;
+import fr.ascadis.exception.WrongUsernameOrPasswordException;
 import fr.ascadis.model.Utilisateur;
 
 
@@ -75,7 +76,7 @@ public class UtilisateurHibernateDAO implements IUtilisateurDAO
 	
 
 	@Override
-	public Utilisateur auth(String username, String password) {
+	public Utilisateur auth(String username, String password) throws WrongUsernameOrPasswordException {
 		try {
 			return this.entityManager.createQuery("from Utilisateur u where u.username = :username AND u.password = :password", Utilisateur.class)
 					.setParameter("username", username)
@@ -84,9 +85,7 @@ public class UtilisateurHibernateDAO implements IUtilisateurDAO
 		}
 		
 		catch (Exception e) {
-			e.printStackTrace();
+			throw new WrongUsernameOrPasswordException();
 		}
-		
-		return null;
 	}
 }

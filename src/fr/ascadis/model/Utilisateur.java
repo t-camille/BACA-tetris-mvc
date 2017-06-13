@@ -15,7 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import fr.ascadis.security.SecurityType;
 import fr.ascadis.security.SecurityUser;
@@ -25,39 +24,34 @@ import fr.ascadis.security.SecurityUser;
 @Table(name="utilisateur", uniqueConstraints = { @UniqueConstraint(columnNames = "UTI_USERNAME") })
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="UTI_TYPE", discriminatorType=DiscriminatorType.INTEGER)
-public abstract class Utilisateur implements Serializable, SecurityUser
+public class Utilisateur implements Serializable, SecurityUser
 {
 	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UTI_ID")
 	private int id;
 	
-	
 	@Column(name="UTI_NOM")
-	@NotEmpty
+	@NotBlank
 	private String nom;
 	
-	@NotBlank
 	@Column(name="UTI_PRENOM")
-	@NotEmpty
+	@NotBlank
 	private String prenom;
 	
-	
 	@Column(name="UTI_USERNAME")
-	@NotEmpty
+	@NotBlank
 	private String username;
 	
-	
 	@Column(name="UTI_PASSWORD")
-	@NotEmpty
+	@NotBlank
 	private String password;
 	
 	@Column(name = "UTI_TYPE", insertable = false, updatable = false)
-	private int type;
-	
-	private String passwordCheck;
+    private int type;
 	
 	
 	
@@ -101,21 +95,16 @@ public abstract class Utilisateur implements Serializable, SecurityUser
 		this.password = password;
 	}
 
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public int getType() {
 		return type;
 	}
 	
 	
 	
-	
-	public String getPasswordCheck() {
-		return passwordCheck;
-	}
-
-	public void setPasswordCheck(String passwordCheck) {
-		this.passwordCheck = passwordCheck;
-	}
-
 	public SecurityType getSecurityType() {
 		switch (this.type) {
 			case 0:

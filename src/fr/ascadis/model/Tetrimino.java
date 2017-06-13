@@ -1,7 +1,6 @@
 package fr.ascadis.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -35,6 +35,7 @@ public class Tetrimino implements Serializable
 	private String couleur;
 	
 	@OneToMany(mappedBy="tetrimino")
+	@OrderBy("ordre")
 	private List<Figure> figures;
 	
 	
@@ -63,21 +64,7 @@ public class Tetrimino implements Serializable
 	}
 	
 	public List<Figure> getFigures() {
-		
-		List<Figure>orderedFigures = new ArrayList<Figure>();
-		
-		for ( int  cpt = 0 ; cpt < this.figures.size(); cpt ++)
-		{
-			for ( Figure f : this.figures)
-			{
-				if ( f.getOrdre() == cpt )
-				{
-					orderedFigures.add(f);
-				}
-			}
-		}
-		
-		return orderedFigures;
+		return figures;
 	}
 	
 	public void setFigures(List<Figure> figures) {

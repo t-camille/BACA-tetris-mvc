@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="figure")
 public class Figure implements Serializable
@@ -29,6 +31,7 @@ public class Figure implements Serializable
 	
 	@ManyToOne
 	@JoinColumn(name="FIG_TETRIMINO_ID")
+	@JsonIgnore
 	private Tetrimino tetrimino;
 	
 	@OneToMany(mappedBy="figure")
@@ -60,6 +63,13 @@ public class Figure implements Serializable
 		this.tetrimino = tetrimino;
 	}
 	
+	public List<Bloc> getBlocs() {
+		return blocs;
+	}
+	
+	public void setBlocs(List<Bloc> blocs) {
+		this.blocs = blocs;
+	}
 	
 	
 	public Bloc findBloc(int positionX, int positionY) {

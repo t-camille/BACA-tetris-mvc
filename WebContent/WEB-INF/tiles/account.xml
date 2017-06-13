@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
-	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+	<!-- Configuration de la vue "login" -->
+	<definition name="login" extends="base.definition">
+		<put-attribute name="title" value="account.login.title" cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
+	</definition>
+	
+	
 	<!-- Configuration de la vue "subscribe" -->
 	<definition name="subscribe" extends="base.definition">
-		<put-attribute name="title" value="Account" />
+		<put-attribute name="title" value="account.subscribe.title" cascade="true" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/account/subscribe.jsp" />
-	</definition>
-	
-	<definition name="login" extends="base.definition">
-		<put-attribute name="title" value="login" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
-	</definition>
-	
-	<definition name="logout" extends="base.definition">
-		<put-attribute name="title" value="logout" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/account/login.jsp" />
 	</definition>
 </tiles-definitions>
