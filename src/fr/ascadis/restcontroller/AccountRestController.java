@@ -17,7 +17,7 @@ import fr.ascadis.dao.IUtilisateurDAO;
 import fr.ascadis.model.Utilisateur;
 
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/account")
 public class AccountRestController

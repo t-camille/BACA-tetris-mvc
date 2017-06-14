@@ -16,7 +16,7 @@ import fr.ascadis.dao.IDAO;
 import fr.ascadis.model.Tetrimino;
 
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/tetrimino")
 public class TetriminoRestController

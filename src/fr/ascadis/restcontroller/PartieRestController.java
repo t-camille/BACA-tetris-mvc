@@ -22,7 +22,7 @@ import fr.ascadis.model.Joueur;
 import fr.ascadis.model.Partie;
 
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/partie")
 public class PartieRestController
