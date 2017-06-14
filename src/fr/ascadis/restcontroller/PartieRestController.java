@@ -53,7 +53,9 @@ public class PartieRestController
 	
 	@RequestMapping(value="", method = RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<Partie> add(@RequestBody Partie partie) {
+	public ResponseEntity<Partie> add() {
+		
+		Partie partie = new Partie();
 		partie = this.partieDAO.save(partie);
 		
 		return new ResponseEntity<Partie>(partie, HttpStatus.OK);
